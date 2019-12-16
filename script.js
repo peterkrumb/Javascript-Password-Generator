@@ -3,9 +3,10 @@ function generatePassword() {
   var lower = "abcdefghijklmnopqrstuvwxyz";
   var numbers = "0123456789";
   var specChar = "!#$%&/'()*+,-./:;<=>?@[]\^_`{|}~";
-  var possibleOptions = [];
+  var possibleOptions = "";
   var newPassword = ""
 
+  
   var length = prompt('How long would you like your password to be? (Choose between 8 - 128 characters)');
 
   if (length === "" || length > 128 || length < 8) {
@@ -20,19 +21,19 @@ function generatePassword() {
   var isOp4 = confirm('Would you like to include special characters? (!?*&...)');
 
   if (isOp1) {
-    possibleOptions += lower;
+    possibleOptions = possibleOptions.concat(lower)
     }
       
   if (isOp2) {
-    possibleOptions += upper;
+    possibleOptions = possibleOptions.concat(upper)
     }
       
   if (isOp3) {
-    possibleOptions += numbers;
+    possibleOptions = possibleOptions.concat(numbers)
     }
 
   if (isOp4) {
-    possibleOptions += specChar;
+    possibleOptions = possibleOptions.concat(specChar)
     }
       
   if (possibleOptions === "") {
@@ -43,14 +44,20 @@ function generatePassword() {
   } 
 
 
-
   for (var i = 0; i < length; i++) {
     newPassword = newPassword + possibleOptions.charAt(Math.floor(Math.random() * Math.floor(possibleOptions.length))); 
     
 
-    //add newPassword to Generate Password box in displaypw text input//
     document.getElementById("display").value = newPassword;
   }
   
 }
 
+function copyPass() {
+  var copyText = document.getElementById("display");
+
+  copyText.select();
+  document.execCommand("copy");
+
+   alert("Password "+ copyText.value + " copied to clipboard");
+}

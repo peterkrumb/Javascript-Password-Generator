@@ -1,0 +1,27 @@
+h1{
+    text-align: center;
+}
+
+.card{
+    width: 50%;
+    display: flex;
+    width: 33em;
+    margin: 0 auto;
+}
+
+h2{
+    text-align: center;
+}
+
+#display{
+    height: 150px; 
+    border: 1px dotted #cccccc;
+}
+
+#copy {
+    color: white;
+    background-color: #b8b6b6;
+    float: right;
+    font-size: 17px;
+    border-color: #b8b6b6;
+}
